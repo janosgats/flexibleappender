@@ -2,6 +2,8 @@ package com.janosgats.flexibleappender.enableable;
 
 /**
  * Set the corresponding Environment Variable's value to {@code true} to enable!
+ * <br>
+ * Feel free to override one of these Enableables to create your own!
  */
 public class EnvironmentVariableEnableable extends AbstractEnableable {
 

@@ -48,4 +48,44 @@ public class LoggingHelper {
         descriptorObject.add("trace", traceJson);
         list.add(descriptorObject);
     }
+
+    /**
+     * Formats a dot separated (canonical) java class name and appends it to {@link #logBuilder}.
+     * <br><br>
+     * <b>Formatting rules</b>:
+     * <ul>
+     * <li>Leaves the last {@code leaveAsIsLevel} name elements as is.</li>
+     * <li>Shortens the remaining package names to their first 3 characters.</li>
+     * </ul>
+     *
+     * @param loggerName     Fully qualified class name
+     * @param leaveAsIsLevel Count of the last name elements to leave unshortened ({@code leaveAsIsLevel >= 0})
+     */
+    public static void appendFormattedLoggerNameToStringBuilder(String loggerName, int leaveAsIsLevel, StringBuilder logBuilder) {
+        String[] nameParts = loggerName.split("\\.");
+
+        int i = 0;
+        for (; i < nameParts.length - leaveAsIsLevel; ++i) {
+            logBuilder.append(nameParts[i].charAt(0));
+
+            if (nameParts[i].length() >= 2)
+                logBuilder.append(nameParts[i].charAt(1));
+
+            if (nameParts[i].length() >= 3)
+                logBuilder.append(nameParts[i].charAt(2));
+
+            if (i < nameParts.length - 1)
+                logBuilder.append(".");
+        }
+
+        for (; i < nameParts.length - 1; ++i) {
+            logBuilder
+                    .append(nameParts[i])
+                    .append(".");
+        }
+
+        if (i < nameParts.length)
+            logBuilder
+                    .append(nameParts[i]);
+    }
 }
