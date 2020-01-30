@@ -10,9 +10,9 @@ import org.apache.logging.log4j.core.config.Property;
 import java.io.Serializable;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Feel free to override one of these LogLineOutputs to create your own!
  */
-public class ConsoleLogLineOutput extends AbstractLogLineOutput {
+public class StdOutLogLineOutput extends AbstractLogLineOutput {
 
     @Override
     public void doOutputLogLine(String logLine) {

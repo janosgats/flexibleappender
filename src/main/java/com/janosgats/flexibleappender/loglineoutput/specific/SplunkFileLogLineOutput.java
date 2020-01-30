@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Feel free to override one of these LogLineOutputs to create your own!
  */
 public class SplunkFileLogLineOutput extends AbstractLogLineOutput {
     protected final String logDirectoryBasePath;

@@ -13,7 +13,9 @@ import org.apache.logging.log4j.core.config.Property;
 import java.io.Serializable;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Override this Appender with a constructor that calls super(), than configures the three elements by setUpAppender()!
+ * <br>
+ * Then inject your appender by the log4j2.xml in your project!
  */
 public abstract class FlexibleAppender extends AbstractAppender {
     private boolean isCurrentlyEnabled;
@@ -21,10 +23,11 @@ public abstract class FlexibleAppender extends AbstractAppender {
     private AbstractLogLineBuilder logLineBuilder;
     private AbstractLogLineOutput logLineOutput;
 
-    protected FlexibleAppender(String name, Filter filter, Layout<? extends Serializable> layout, boolean ignoreExceptions, Property[] properties,
-                               AbstractEnableable enableable, AbstractLogLineBuilder logLineBuilder, AbstractLogLineOutput logLineOutput) {
+    protected FlexibleAppender(String name, Filter filter, Layout<? extends Serializable> layout, boolean ignoreExceptions, Property[] properties) {
         super(name, filter, layout, ignoreExceptions, properties);
+    }
 
+    public void setUpAppender(AbstractEnableable enableable, AbstractLogLineBuilder logLineBuilder, AbstractLogLineOutput logLineOutput) {
         this.enableable = enableable;
         this.logLineBuilder = logLineBuilder;
         this.logLineOutput = logLineOutput;

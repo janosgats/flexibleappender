@@ -11,9 +11,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class LocaldevConsoleLogLineBuilder extends DateTimeFormatterLogLineBuilder {
     protected final StringBuilder stringBuilder = new StringBuilder();
+    private final int loggerNameLeaveAsIsLevel;
 
-    public LocaldevConsoleLogLineBuilder(DateTimeFormatter dateTimeFormatter) {
+    public LocaldevConsoleLogLineBuilder(DateTimeFormatter dateTimeFormatter, int loggerNameLeaveAsIsLevel) {
         super(dateTimeFormatter);
+        this.loggerNameLeaveAsIsLevel = loggerNameLeaveAsIsLevel;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class LocaldevConsoleLogLineBuilder extends DateTimeFormatterLogLineBuild
                 .append(logEvent.getThreadPriority())
                 .append("] [");
 
-        LoggingHelper.appendFormattedLoggerNameToStringBuilder(logEvent.getLoggerName(), 2, stringBuilder);
+        LoggingHelper.appendFormattedLoggerNameToStringBuilder(logEvent.getLoggerName(), loggerNameLeaveAsIsLevel, stringBuilder);
 
         stringBuilder.append("] ");
 
