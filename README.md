@@ -9,7 +9,7 @@ The components:
 <br>
 <br>
 
-##### Maven import from central repository:
+#### Maven import from central repository:
 ```
 <dependencies>
       <dependency>
