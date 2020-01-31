@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.enableable;
+package com.janosgats.logging.flexibleappender.enableable;
 
 /**
  * Set the corresponding System Property's value to {@code "true"} to enable!

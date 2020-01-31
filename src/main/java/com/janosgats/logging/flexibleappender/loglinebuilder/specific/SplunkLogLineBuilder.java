@@ -1,8 +1,8 @@
-package com.janosgats.flexibleappender.loglinebuilder.specific;
+package com.janosgats.logging.flexibleappender.loglinebuilder.specific;
 
 import com.google.gson.Gson;
-import com.janosgats.flexibleappender.helper.LoggingHelper;
-import com.janosgats.flexibleappender.loglinebuilder.DateTimeFormatterLogLineBuilder;
+import com.janosgats.logging.flexibleappender.helper.LoggingHelper;
+import com.janosgats.logging.flexibleappender.loglinebuilder.DateTimeFormatterLogLineBuilder;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;
 

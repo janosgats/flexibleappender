@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender;
+package com.janosgats.logging.flexibleappender;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LogEvent;
@@ -37,7 +37,7 @@ public class BasicTest {
 
     @Test
     public void basicTest() {
-        TestAppender testAppender = new TestAppender("TestAppender",
+        DummyAppender dummyAppender = new DummyAppender("DummyAppender",
                 null,
                 PatternLayout.createDefaultLayout(),
                 false,
@@ -61,10 +61,10 @@ public class BasicTest {
                 .setMessage(new SimpleMessage("Test message."))
                 .build();
 
-        testAppender.append(logEvent);
+        dummyAppender.append(logEvent);
 
         outContent.reset();
-        testAppender.append(logEvent);
+        dummyAppender.append(logEvent);
         String actualLog = outContent.toString().replace("\r", "");
         assertEquals(expectedLog, actualLog);
     }

@@ -1,16 +1,10 @@
-package com.janosgats.flexibleappender.loglineoutput.specific;
+package com.janosgats.logging.flexibleappender.loglineoutput.specific;
 
-import com.janosgats.flexibleappender.enableable.AbstractEnableable;
-import com.janosgats.flexibleappender.loglinebuilder.AbstractLogLineBuilder;
-import com.janosgats.flexibleappender.loglineoutput.AbstractLogLineOutput;
+import com.janosgats.logging.flexibleappender.loglineoutput.AbstractLogLineOutput;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.core.Filter;
-import org.apache.logging.log4j.core.Layout;
-import org.apache.logging.log4j.core.config.Property;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;

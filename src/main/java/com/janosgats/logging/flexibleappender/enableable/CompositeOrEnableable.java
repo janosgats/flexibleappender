@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.enableable;
+package com.janosgats.logging.flexibleappender.enableable;
 
 /**
  * Execute multiple enablers with a logical OR by using this enabler!

@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.enableable;
+package com.janosgats.logging.flexibleappender.enableable;
 
 import java.util.LinkedList;
 

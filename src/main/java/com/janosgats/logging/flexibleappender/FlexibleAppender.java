@@ -1,9 +1,9 @@
-package com.janosgats.flexibleappender;
+package com.janosgats.logging.flexibleappender;
 
-import com.janosgats.flexibleappender.enableable.AbstractEnableable;
-import com.janosgats.flexibleappender.helper.LoggingHelper;
-import com.janosgats.flexibleappender.loglinebuilder.AbstractLogLineBuilder;
-import com.janosgats.flexibleappender.loglineoutput.AbstractLogLineOutput;
+import com.janosgats.logging.flexibleappender.enableable.AbstractEnableable;
+import com.janosgats.logging.flexibleappender.helper.LoggingHelper;
+import com.janosgats.logging.flexibleappender.loglinebuilder.AbstractLogLineBuilder;
+import com.janosgats.logging.flexibleappender.loglineoutput.AbstractLogLineOutput;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.LogEvent;

@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.helper;
+package com.janosgats.logging.flexibleappender.helper;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -50,7 +50,7 @@ public class LoggingHelper {
     }
 
     /**
-     * Formats a dot separated (canonical) java class name and appends it to {@link #logBuilder}.
+     * Formats a dot separated (canonical) java class name and appends it to {@code logBuilder}.
      * <br><br>
      * <b>Formatting rules</b>:
      * <ul>
@@ -60,6 +60,7 @@ public class LoggingHelper {
      *
      * @param loggerName     Fully qualified class name
      * @param leaveAsIsLevel Count of the last name elements to leave unshortened ({@code leaveAsIsLevel >= 0})
+     * @param logBuilder     StringBuilder to append logger name to
      */
     public static void appendFormattedLoggerNameToStringBuilder(String loggerName, int leaveAsIsLevel, StringBuilder logBuilder) {
         String[] nameParts = loggerName.split("\\.");

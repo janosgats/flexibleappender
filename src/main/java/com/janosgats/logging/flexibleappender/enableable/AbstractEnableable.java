@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.enableable;
+package com.janosgats.logging.flexibleappender.enableable;
 
 /**
  * Feel free to override one of these Enableables to create your own!

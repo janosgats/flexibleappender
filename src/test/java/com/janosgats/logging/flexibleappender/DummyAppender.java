@@ -1,8 +1,8 @@
-package com.janosgats.flexibleappender;
+package com.janosgats.logging.flexibleappender;
 
-import com.janosgats.flexibleappender.enableable.AlwaysOnEnableable;
-import com.janosgats.flexibleappender.loglinebuilder.specific.LocaldevConsoleLogLineBuilder;
-import com.janosgats.flexibleappender.loglineoutput.specific.StdOutLogLineOutput;
+import com.janosgats.logging.flexibleappender.enableable.AlwaysOnEnableable;
+import com.janosgats.logging.flexibleappender.loglinebuilder.specific.LocaldevConsoleLogLineBuilder;
+import com.janosgats.logging.flexibleappender.loglineoutput.specific.StdOutLogLineOutput;
 import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.Layout;
 import org.apache.logging.log4j.core.config.Property;
@@ -12,9 +12,9 @@ import java.io.Serializable;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-@Plugin(name = "TestAppender", category = "Core", elementType = "appender", printObject = true)
-public class TestAppender extends FlexibleAppender {
-    protected TestAppender(String name, Filter filter, Layout<? extends Serializable> layout, boolean ignoreExceptions, Property[] properties) {
+@Plugin(name = "DummyAppender", category = "Core", elementType = "appender", printObject = true)
+public class DummyAppender extends FlexibleAppender {
+    protected DummyAppender(String name, Filter filter, Layout<? extends Serializable> layout, boolean ignoreExceptions, Property[] properties) {
         super(name, filter, layout, ignoreExceptions, properties);
 
         AlwaysOnEnableable alwaysOnEnableable = new AlwaysOnEnableable();

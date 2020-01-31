@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.enableable;
+package com.janosgats.logging.flexibleappender.enableable;
 
 /**
  * Set the corresponding Environment Variable's value to {@code true} to enable!

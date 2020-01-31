@@ -1,4 +1,4 @@
-package com.janosgats.flexibleappender.loglinebuilder;
+package com.janosgats.logging.flexibleappender.loglinebuilder;
 
 import org.apache.logging.log4j.core.LogEvent;
 
