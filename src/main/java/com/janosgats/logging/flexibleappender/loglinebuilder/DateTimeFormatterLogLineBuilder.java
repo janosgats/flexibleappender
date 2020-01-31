@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Feel free to override one of these LogLineBuilders to create your own!
  */
 public abstract class DateTimeFormatterLogLineBuilder extends AbstractLogLineBuilder {
     protected DateTimeFormatter dateTimeFormatter;

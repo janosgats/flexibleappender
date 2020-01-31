@@ -7,7 +7,7 @@ import org.apache.logging.log4j.core.LogEvent;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Feel free to override one of these LogLineBuilders to create your own!
  */
 public class LocaldevConsoleLogLineBuilder extends DateTimeFormatterLogLineBuilder {
     protected final StringBuilder stringBuilder = new StringBuilder();

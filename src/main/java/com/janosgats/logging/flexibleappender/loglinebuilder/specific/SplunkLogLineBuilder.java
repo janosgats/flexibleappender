@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 
 /**
- * Feel free to override one of these Appenders to create your own!
+ * Feel free to override one of these LogLineBuilders to create your own!
  */
 public class SplunkLogLineBuilder extends DateTimeFormatterLogLineBuilder {
     protected final String logSourceType;
