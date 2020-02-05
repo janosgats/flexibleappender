@@ -21,7 +21,7 @@ public class SplunkFileLogLineOutput extends AbstractLogLineOutput {
 
     protected File logFile;
 
-    protected SplunkFileLogLineOutput(String logDirectoryBasePath, String logSourceType, TimeZone timeZoneForFilePathUpdate) {
+    public SplunkFileLogLineOutput(String logDirectoryBasePath, String logSourceType, TimeZone timeZoneForFilePathUpdate) {
         this.logDirectoryBasePath = logDirectoryBasePath;
         this.logSourceType = logSourceType;
         this.timeZoneForFilePathUpdate = timeZoneForFilePathUpdate;
