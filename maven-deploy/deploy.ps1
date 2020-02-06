@@ -1,2 +1,2 @@
-docker build -f Dockerfile -t flexibleappender-maven-deployer:latest ./..
-docker run -it -v ${PWD}/..:/app flexibleappender-maven-deployer:latest
+docker build -f $PSScriptRoot/Dockerfile -t flexibleappender-maven-deployer:latest $PSScriptRoot/..
+docker run -it -v $PSScriptRoot/..:/app flexibleappender-maven-deployer:latest
