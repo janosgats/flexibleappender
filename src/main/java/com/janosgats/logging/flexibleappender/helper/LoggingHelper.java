@@ -10,7 +10,7 @@ import java.io.StringWriter;
 import java.util.Arrays;
 
 public class LoggingHelper {
-    static final String errorFormat = "%s: %s";
+    private static final String errorFormat = "%s: %s";
 
     public static String getStackTraceAsString(Throwable throwable) {
         StringWriter stackTrace = new StringWriter();
@@ -24,6 +24,12 @@ public class LoggingHelper {
         jsonRoot.add("errors", unwindCausesToList(exception));
 
         return gson.toJson(jsonRoot);
+    }
+
+    public static JsonObject getExceptionAsJsonDump(Throwable exception) {
+        JsonObject jsonRoot = new JsonObject();
+        jsonRoot.add("exception", unwindCausesToList(exception));
+        return jsonRoot;
     }
 
     /**
