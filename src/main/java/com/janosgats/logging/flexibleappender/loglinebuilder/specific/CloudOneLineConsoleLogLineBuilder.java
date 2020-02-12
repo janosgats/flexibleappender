@@ -9,10 +9,10 @@ import java.time.format.DateTimeFormatter;
 /**
  * Feel free to override one of these LogLineBuilders to create your own!
  */
-public class AwsCloudWatchConsoleLogLineBuilder extends DateTimeFormatterLogLineBuilder {
+public class CloudOneLineConsoleLogLineBuilder extends DateTimeFormatterLogLineBuilder {
     protected final StringBuilder stringBuilder = new StringBuilder();
 
-    public AwsCloudWatchConsoleLogLineBuilder(DateTimeFormatter dateTimeFormatter) {
+    public CloudOneLineConsoleLogLineBuilder(DateTimeFormatter dateTimeFormatter) {
         super(dateTimeFormatter);
     }
 

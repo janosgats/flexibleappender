@@ -1,7 +1,9 @@
 package com.janosgats.logging.flexibleappender.loglineoutput.specific;
 
+import com.janosgats.logging.flexibleappender.loglinebuilder.AbstractLogLineBuilder;
 import com.janosgats.logging.flexibleappender.loglineoutput.AbstractLogLineOutput;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.core.LogEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Calendar;
+import java.util.Objects;
 import java.util.TimeZone;
 
 /**
@@ -28,10 +31,12 @@ public class SplunkFileLogLineOutput extends AbstractLogLineOutput {
     }
 
     @Override
-    public void doOutputLogLine(String logLine) {
+    public void doOutputLogLine(AbstractLogLineBuilder logLineBuilder, LogEvent logEvent) {
+        Objects.requireNonNull(logLineBuilder);
+
         updateSplunkLogFilePath();
         try {
-            FileUtils.writeStringToFile(logFile, logLine, Charset.defaultCharset(), true);
+            FileUtils.writeStringToFile(logFile, logLineBuilder.buildLogLine(logEvent), Charset.defaultCharset(), true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

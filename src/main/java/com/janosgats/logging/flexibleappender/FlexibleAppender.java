@@ -55,7 +55,7 @@ public abstract class FlexibleAppender extends AbstractAppender {
             return;
 
         try {
-            logLineOutput.doOutputLogLine(logLineBuilder.buildLogLine(event));
+            logLineOutput.doOutputLogLine(logLineBuilder, event);
         } catch (Exception e) {
             System.out.println("Exception while trying to log with FlexibleAppender: " + LoggingHelper.getExceptionInOneLine(e));
         }
