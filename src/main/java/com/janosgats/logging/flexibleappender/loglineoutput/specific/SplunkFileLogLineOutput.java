@@ -36,7 +36,7 @@ public class SplunkFileLogLineOutput extends AbstractLogLineOutput {
 
         updateSplunkLogFilePath();
         try {
-            FileUtils.writeStringToFile(logFile, logLineBuilder.buildLogLine(logEvent), Charset.defaultCharset(), true);
+            FileUtils.writeStringToFile(logFile, logLineBuilder.buildLogLine(logEvent) + "\n", Charset.defaultCharset(), true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
