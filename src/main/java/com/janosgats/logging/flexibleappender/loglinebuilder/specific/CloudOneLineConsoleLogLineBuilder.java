@@ -43,7 +43,7 @@ public class CloudOneLineConsoleLogLineBuilder extends DateTimeFormatterLogLineB
         }
 
         stringBuilder.append("> ")
-                .append(logEvent.getMessage().toString()
+                .append(logEvent.getMessage().getFormattedMessage()
                         .replace("\t", "\\t")
                         .replace("\r", "")
                         .replace("\n", "\\n"))

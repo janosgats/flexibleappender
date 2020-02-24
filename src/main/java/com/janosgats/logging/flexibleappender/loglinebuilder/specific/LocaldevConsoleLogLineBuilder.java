@@ -48,7 +48,7 @@ public class LocaldevConsoleLogLineBuilder extends DateTimeFormatterLogLineBuild
         }
 
         stringBuilder.append("> ")
-                .append(logEvent.getMessage().toString())
+                .append(logEvent.getMessage().getFormattedMessage())
                 .append(" ");
 
         if (logEvent.getThrown() != null) {
