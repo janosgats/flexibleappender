@@ -8,22 +8,34 @@ import org.apache.logging.log4j.core.LogEvent;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Feel free to override one of these LogLineBuilders to create your own!
  */
 public class JsonLogLineBuilder extends DateTimeFormatterLogLineBuilder {
-
     protected final Gson gson = new Gson();
 
-    public JsonLogLineBuilder(DateTimeFormatter dateTimeFormatter) {
+    protected final Map<String, String> additionalFields;
+
+    public JsonLogLineBuilder(DateTimeFormatter dateTimeFormatter, Map<String, String> additionalFields) {
         super(dateTimeFormatter);
+        this.additionalFields = additionalFields;
     }
 
+    public JsonLogLineBuilder(DateTimeFormatter dateTimeFormatter) {
+        this(dateTimeFormatter, null);
+    }
+
+    protected void putAdditionalFieldsIntoMap(Map<String, String> logMap) {
+        if (additionalFields != null)
+            logMap.putAll(additionalFields);
+    }
 
     @Override
     public String buildLogLine(LogEvent logEvent) {
         HashMap<String, String> logMap = new LinkedHashMap<>();
+        putAdditionalFieldsIntoMap(logMap);
 
         logMap.put("timestamp", getFormattedDateTimeStringFromLogEvent(logEvent));
 
