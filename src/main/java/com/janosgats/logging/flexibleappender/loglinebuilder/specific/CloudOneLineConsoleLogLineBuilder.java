@@ -38,7 +38,7 @@ public class CloudOneLineConsoleLogLineBuilder extends DateTimeFormatterLogLineB
 
         if (logEvent.getMarker() != null) {
             stringBuilder.append("[")
-                    .append(logEvent.getMarker())
+                    .append(logEvent.getMarker().getName())
                     .append("] ");
         }
 

@@ -43,7 +43,7 @@ public class LocaldevConsoleLogLineBuilder extends DateTimeFormatterLogLineBuild
 
         if (logEvent.getMarker() != null) {
             stringBuilder.append("[")
-                    .append(logEvent.getMarker())
+                    .append(logEvent.getMarker().getName())
                     .append("] ");
         }
 

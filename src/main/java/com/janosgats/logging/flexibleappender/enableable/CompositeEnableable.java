@@ -9,7 +9,7 @@ import java.util.LinkedList;
  */
 public abstract class CompositeEnableable extends AbstractEnableable {
 
-    protected LinkedList<AbstractEnableable> abstractEnableables = new LinkedList<>();
+    protected LinkedList<AbstractEnableable> abstractEnableables;
 
     public LinkedList<AbstractEnableable> getAbstractEnableables() {
         return abstractEnableables;

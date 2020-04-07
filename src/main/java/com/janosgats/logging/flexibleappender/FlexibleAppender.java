@@ -2,6 +2,8 @@ package com.janosgats.logging.flexibleappender;
 
 import com.janosgats.logging.flexibleappender.enableable.AbstractEnableable;
 import com.janosgats.logging.flexibleappender.helper.LoggingHelper;
+import com.janosgats.logging.flexibleappender.logfilter.AbstractLogFilter;
+import com.janosgats.logging.flexibleappender.logfilter.AllowAllLogFilter;
 import com.janosgats.logging.flexibleappender.loglinebuilder.AbstractLogLineBuilder;
 import com.janosgats.logging.flexibleappender.loglineoutput.AbstractLogLineOutput;
 import org.apache.logging.log4j.core.Filter;
@@ -20,6 +22,7 @@ import java.io.Serializable;
 public abstract class FlexibleAppender extends AbstractAppender {
     private boolean isCurrentlyEnabled;
     private AbstractEnableable enableable;
+    private AbstractLogFilter logFilter;
     private AbstractLogLineBuilder logLineBuilder;
     private AbstractLogLineOutput logLineOutput;
 
@@ -27,12 +30,17 @@ public abstract class FlexibleAppender extends AbstractAppender {
         super(name, filter, layout, ignoreExceptions, properties);
     }
 
-    public void setUpAppender(AbstractEnableable enableable, AbstractLogLineBuilder logLineBuilder, AbstractLogLineOutput logLineOutput) {
+    public void setUpAppender(AbstractEnableable enableable, AbstractLogFilter logFilter, AbstractLogLineBuilder logLineBuilder, AbstractLogLineOutput logLineOutput) {
         this.enableable = enableable;
+        this.logFilter = logFilter;
         this.logLineBuilder = logLineBuilder;
         this.logLineOutput = logLineOutput;
 
         setCurrentlyEnabledByExecutingEnableable();
+    }
+
+    public void setUpAppender(AbstractEnableable enableable, AbstractLogLineBuilder logLineBuilder, AbstractLogLineOutput logLineOutput) {
+        setUpAppender(enableable, new AllowAllLogFilter(), logLineBuilder, logLineOutput);
     }
 
     public void setCurrentlyEnabledByExecutingEnableable() {
@@ -54,6 +62,9 @@ public abstract class FlexibleAppender extends AbstractAppender {
         if (!isCurrentlyEnabled())
             return;
 
+        if (!logFilter.shouldLogEventBeLogged(event))
+            return;
+
         try {
             logLineOutput.doOutputLogLine(logLineBuilder, event);
         } catch (Exception e) {
@@ -66,7 +77,8 @@ public abstract class FlexibleAppender extends AbstractAppender {
         return enableable;
     }
 
-    public void setEnableable(AbstractEnableable enableable) {
+    public void setAndExecuteEnableable(AbstractEnableable enableable) {
         this.enableable = enableable;
+        setCurrentlyEnabledByExecutingEnableable();
     }
 }
