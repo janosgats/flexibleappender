@@ -9,7 +9,7 @@ import java.util.LinkedList;
  */
 public abstract class CompositeLogFilter extends AbstractLogFilter {
 
-    protected LinkedList<AbstractLogFilter> abstractLogFilters;
+    protected LinkedList<AbstractLogFilter> abstractLogFilters = new LinkedList<>();
 
     public LinkedList<AbstractLogFilter> getAbstractLogFilters() {
         return abstractLogFilters;
