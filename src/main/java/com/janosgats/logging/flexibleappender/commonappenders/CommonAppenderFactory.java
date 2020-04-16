@@ -28,6 +28,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TimeZone;
 
 public class CommonAppenderFactory<T extends FlexibleAppender> {
@@ -76,6 +77,8 @@ public class CommonAppenderFactory<T extends FlexibleAppender> {
     }
 
     public T createForKafkaLogsConsole(String appName, String enableableEnvironmentVariableName, String enableableSystemPropertyName) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Objects.requireNonNull(appName, "appName shouldn't be null!");
+
         CompositeOrEnableable compositeOrEnableable = new CompositeOrEnableable();
         compositeOrEnableable.getAbstractEnableables().add(new EnvironmentVariableEnableable(enableableEnvironmentVariableName));
         compositeOrEnableable.getAbstractEnableables().add(new SystemPropertyEnableable(enableableSystemPropertyName));
@@ -118,6 +121,9 @@ public class CommonAppenderFactory<T extends FlexibleAppender> {
 
     public T createForSplunkFile(String enableableEnvironmentVariableName, String enableableSystemPropertyName,
                                  String logDirectoryBasePath, String logSourceType) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Objects.requireNonNull(logDirectoryBasePath, "logDirectoryBasePath shouldn't be null!");
+        Objects.requireNonNull(logSourceType, "logSourceType shouldn't be null!");
+
         CompositeOrEnableable compositeOrEnableable = new CompositeOrEnableable();
         compositeOrEnableable.getAbstractEnableables().add(new EnvironmentVariableEnableable(enableableEnvironmentVariableName));
         compositeOrEnableable.getAbstractEnableables().add(new SystemPropertyEnableable(enableableSystemPropertyName));
