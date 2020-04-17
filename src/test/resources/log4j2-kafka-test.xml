@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="kafka-test" packages="com.janosgats.logging.flexibleappender.commonappenders.readytouse">
+    <Appenders>
+        <KafkaLogsConsoleAppender name="KafkaLogsConsoleAppender" enableableSystemPropertyName="KAFKA_APPENDER_ENABLED" kafkaAppName="franz">
+        </KafkaLogsConsoleAppender>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="KafkaLogsConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
