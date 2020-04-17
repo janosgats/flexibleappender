@@ -24,8 +24,8 @@ public class AwsCloudWatchConsoleAppender extends FlexibleAppender {
             @PluginAttribute("name") String name,
             @PluginElement("Layout") Layout<? extends Serializable> layout,
             @PluginElement("Filter") final Filter filter,
-            @PluginAttribute(value = "enableableEnvironmentVariableName", defaultString = "LOGGING_ENABLE_LOCALDEV_CONSOLE_APPENDER") String enableableEnvironmentVariableName,
-            @PluginAttribute(value = "enableableSystemPropertyName", defaultString = "LOGGING_ENABLE_LOCALDEV_CONSOLE_APPENDER") String enableableSystemPropertyName
+            @PluginAttribute(value = "enableableEnvironmentVariableName", defaultString = "LOGGING_ENABLE_AWSCLOUDWATCH_CONSOLE_APPENDER") String enableableEnvironmentVariableName,
+            @PluginAttribute(value = "enableableSystemPropertyName", defaultString = "LOGGING_ENABLE_AWSCLOUDWATCH_CONSOLE_APPENDER") String enableableSystemPropertyName
     ) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 
         return (AwsCloudWatchConsoleAppender) new CommonAppenderFactory<AwsCloudWatchConsoleAppender>(AwsCloudWatchConsoleAppender.class)
