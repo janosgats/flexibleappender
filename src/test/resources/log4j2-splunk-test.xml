@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="splunk-test"  packages="com.janosgats.logging.flexibleappender.commonappenders.readytouse">
+    <Appenders>
+        <SplunkFileAppender name="SplunkFileAppender" logDirectoryBasePath="${sys:SPLUNK_APPENDER_LOG_DIR}" logSourceType="${sys:SPLUNK_APPENDER_LOG_SOURCE_TYPE}">
+        </SplunkFileAppender>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="SplunkFileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
