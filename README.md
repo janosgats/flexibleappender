@@ -2,10 +2,10 @@
 
 #### Mix the four separated component of FlexibleAppender to create an appender that makes you happy!
 The components: 
-- Enableable
-- LogFilter
-- LogLineBuilder
-- LogLineOutput
+- Enableable (filter that runs when instantiating an appender)
+- LogFilter (filter that runs for every log event)
+- LogLineBuilder (constructs a loggable line)
+- LogLineOutput (writes the log line into a stream/file/anything)
 
 <br>
 <br>
